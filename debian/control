@@ -1,0 +1,12 @@
+Source: webstorm
+Section: vcs
+Priority: optional
+Maintainer: Nicky Gerritsen <nickygerritsen@me.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.8.4
+Homepage: http://www.jetbrains.com/webstorm/
+
+Package: webstorm
+Architecture: all
+Depends: openjdk-7-jre | oracle-java7-installer | oracle-java8-installer | oracle-java6-installer | sun-java7-jdk | sun-java8-jdk | sun-java6-jdk
+Description: WebStorm is a database IDE.

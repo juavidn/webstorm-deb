@@ -1,0 +1,8 @@
+/WebStorm-*.tar.gz
+/build-stamp
+/debian/build-stamp
+/debian/files
+/debian/webstorm.debhelper.log
+/debian/webstorm/
+/debian/webstorm.substvars
+*~

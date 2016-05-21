@@ -1,0 +1,48 @@
+#!/usr/bin/make -f
+
+VERSION := $(shell dpkg-parsechangelog | sed -n -e 's/^Version: //p')
+
+BUILD=$(shell tar -tzf WebStorm-$(VERSION).tar.gz | head -n 1 | cut -d/ -f1)
+
+build: build-stamp
+build-stamp:
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	# Untar and move upstream version
+	tar --directory $(CURDIR)/debian/webstorm/opt -xzf WebStorm-$(VERSION).tar.gz
+	mv $(CURDIR)/debian/webstorm/opt/$(BUILD) $(CURDIR)/debian/webstorm/opt/WebStorm
+
+	# Create desktop item for menu
+	cp webstorm.desktop $(CURDIR)/debian/webstorm/usr/share/applications
+
+	# Create symlink in /usr/bin
+	dh_link opt/WebStorm/bin/webstorm.sh usr/bin/webstorm
+
+
+binary-indep: build install
+	dh_testdir -i
+	dh_testroot -i
+	dh_installdocs -i
+	dh_install -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

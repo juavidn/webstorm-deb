@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=WebStorm
+Comment=WebStorm
+Exec=/opt/WebStorm/bin/webstorm.sh %U
+Terminal=false
+Type=Application
+Icon=/opt/WebStorm/bin/webide.png
+Categories=GNOME;GTK;Development;
