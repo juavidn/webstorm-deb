@@ -44,10 +44,10 @@ If the latest version of WebStorm is newer than the version listed in `debian/ch
 dch -v <new-version-number> -m "New upstream version"
 ```
 
-For example, if the latest version is 10.0.4, run the following:
+For example, if the latest version is 2016.1.2b, run the following:
 
 ```sh
-dch -v 10.0.4 -m "New upstream version"
+dch -v 2016.1.2b -m "New upstream version"
 ```
 
 You can then commit the change to `debian/changelog` and submit a pull request.
