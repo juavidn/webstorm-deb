@@ -1,8 +1,10 @@
 [Desktop Entry]
-Name=WebStorm
-Comment=WebStorm
-Exec=/opt/WebStorm/bin/webstorm.sh %U
-Terminal=false
+Version=1.0
 Type=Application
-Icon=/opt/WebStorm/bin/webide.png
-Categories=GNOME;GTK;Development;
+Name=WebStorm
+Icon=/opt/WebStorm/bin/webstorm.svg
+Exec="/opt/WebStorm/bin/webstorm.sh" %f
+Comment=Develop with pleasure!
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-webstorms
